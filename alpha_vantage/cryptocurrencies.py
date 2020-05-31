@@ -6,7 +6,7 @@ class CryptoCurrencies(av):
     """
     @av._output_format
     @av._call_api_on_func
-    def crypto_rating(self, symbol):
+    def get_crypto_rating(self, symbol):
         """This API call returns the Crypto Rating for a chosen symbol
         
         Fundamental Crypto Asset Score (FCAS) is a comparative metric used 
@@ -23,7 +23,7 @@ class CryptoCurrencies(av):
         returns json or pandas only
         """
         _FUNCTION_KEY = 'CRYPTO_RATING'
-        return _FUNCTION_KEY, 'Crypto Rating FCAS', None
+        return _FUNCTION_KEY, 'Crypto Rating', None
     
     @av._output_format
     @av._call_api_on_func
