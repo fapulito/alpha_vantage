@@ -6,6 +6,60 @@ class CryptoCurrencies(av):
     """
     @av._output_format
     @av._call_api_on_func
+    def get_currency_exchange_rate(self, symbol):
+        """This API call returns the Crypto Rating for a chosen symbol
+        
+        Fundamental Crypto Asset Score (FCAS) is a comparative metric used 
+        to assess the fundamental health of crypto projects. The score is derived 
+        from the interactivity between primary project life-cycle factors: User 
+        Activity/Utility, Developer Behavior, and Market Maturity. Each crypto 
+        asset is given a composite numerical score, 0-1000
+        
+        Keyword Arguments:
+            symbol: The digital/crypto currency of your choice. It can be any
+            of the currencies in the digital currency list. For example:
+            symbol=BTC.
+        
+        Returns:
+            A pandas or a dictionary with the results from the api call
+        """
+        _FUNCTION_KEY = 'CRYPTO_RATING'
+        return _FUNCTION_KEY, 'Crypto Rating FCAS', None
+    
+    @av._output_format
+    @av._call_api_on_func
+    def get_crypto_rating(self, symbol):
+        """This API call returns the Crypto Rating for a chosen symbol
+        
+        Fundamental Crypto Asset Score (FCAS) is a comparative metric used 
+        to assess the fundamental health of crypto projects. The score is derived 
+        from the interactivity between primary project life-cycle factors: User 
+        Activity/Utility, Developer Behavior, and Market Maturity. Each crypto 
+        asset is given a composite numerical score, 0-1000
+        
+        Keyword Arguments:
+            symbol: The digital/crypto currency of your choice. It can be any
+            of the currencies in the digital currency list. For example:
+            symbol=BTC.
+        
+        Returns:
+            A pandas or a dictionary with the results from the api call
+        """
+        _FUNCTION_KEY = "Crypto Rating (FCAS)"
+        # The keys for the json output
+        _DATA_KEYS = ["Rank A: symbol",
+                      "Rank B: name",
+                      "Rank C: fcas rating",
+                      "Rank D: fcas score",
+                      "Rank E: developer score",
+                      "Rank F: market maturity score",
+                      "Rank G: utility score",
+                      "Rank H: last refreshed",
+                      "Rank I: timezone",]
+        return _FUNCTION_KEY, _DATA_KEYS, 'Meta Data'
+    
+    @av._output_format
+    @av._call_api_on_func
     def get_digital_currency_daily(self, symbol, market):
         """ Returns  the daily historical time series for a digital currency
         (e.g., BTC) traded on a specific market (e.g., CNY/Chinese Yuan),
